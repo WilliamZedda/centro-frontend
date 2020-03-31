@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <h2 class="text-center">Home page - Alerts page</h2>
+  <div class="row">
+    <div class="col-8">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker *ngFor="let marker of markers; let i = index" [latitude]="marker.lat" [longitude]="marker.lng"
+          [iconUrl]="marker.iconUrl">
+          <agm-info-window>
+            <div class="container">
+              ID: {{marker.device.id}} <br>
+              TYPE: {{marker.device.type}} <br>
+              DESCRIPTION: {{marker.device.description}} <br>
+              BRAND: {{marker.device.brand}} <br>
+              LAST UPDATE: {{marker.device.lastUpdate}} <br>
+              REGISTRATION TIME: {{marker.device.registrationTime}} <br>
+              IS ACTIVE: {{marker.device.isActive}} <br>
+              IN MANTEINANCE: {{marker.device.inManteinance}} <br>
+              WEIGHT: {{marker.device.weight}} <br>
+              STORAGE YEARS: {{marker.device.storageYears}}
+            </div>
+            <hr>
+            <div class="container" *ngIf="marker.iconUrl !== standardIconUrl" (click)="redirectToAlertDetails(marker)">
+              CODE: {{marker.alert.code}} <br>
+              DESCRIPTION: {{marker.alert.description}}
+            </div>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+    <div class=" col-4">
+      <div class="btn-group">
+        <button class="btn btn-outline-success fas fa-plus" (click)="redirectToAddOnClick()"></button>
+        <button class="btn btn-outline-info fas fa-sync-alt" (click)="getAllAlerts()"></button>
+      </div>
+      <div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search by description" [(ngModel)]="searchText">
+        </div>
+
+        <ul class="list-group-horizontal">
+          <app-alerts-preview (alertDetailEvent)="redirectToAlertOnClick($event)"
+            (alertDeleteEvent)="deleteAlert($event)" (alertUpdateEvent)="redirectToUpdateOnClick($event)"
+            *ngFor="let alertEl of alertsArray | alertsFilter:searchText | paginate: {currentPage: page, itemsPerPage: pageSize}"
+            [alert]="alertEl">
+          </app-alerts-preview>
+        </ul>
+      </div>
+      <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

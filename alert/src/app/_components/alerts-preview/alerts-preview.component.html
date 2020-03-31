@@ -1,0 +1,37 @@
+<li class="list-group-item" [ngSwitch]="alert.description">
+  <div *ngSwitchCase="'incendio'" class="alert alert-danger row" role="alert" (click)="showAlert()">
+    <div class="fas fa-fire-alt col-md-auto align-self-center"></div>
+    <div class="col">
+      <p>
+        Date: {{alert.timestamp || "not available" | date:'dd/MM/yyyy'}}<br>
+        Code: {{alert.code || "not available"}}<br>
+        {{alert.description || "not available"}}<br>
+      </p>
+    </div>
+  </div>
+  <div *ngSwitchCase="'pioggia'" class="alert alert-primary row" role="alert" (click)="showAlert()">
+    <div class="fas fa-cloud-showers-heavy col-md-auto align-self-center"></div>
+    <div class="col">
+      <p>
+        Date: {{alert.timestamp || "not available" | date:'dd/MM/yyyy'}}<br>
+        Code: {{alert.code || "not available"}}<br>
+        {{alert.description || "not available"}}<br>
+      </p>
+    </div>
+  </div>
+  <div *ngSwitchDefault class="alert alert-secondary row" role="alert" (click)="showAlert()">
+    <div class="fas fa-exclamation-triangle col-md-auto align-self-center"></div>
+    <div class="col">
+      <p>
+        Date: {{alert.timestamp || "not available" | date:'dd/MM/yyyy'}}<br>
+        Code: {{alert.code || "not available"}}<br>
+        {{alert.description || "not available"}}<br>
+      </p>
+    </div>
+  </div>
+  <div class="btn-group-lg test">
+    <button class="btn btn-outline-warning fas fa-edit" (click)="updateAlert()"></button>
+    <button class="btn btn-outline-danger fas fa-trash" (click)="deleteAlert()"></button>
+
+  </div>
+</li>

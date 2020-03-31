@@ -1,0 +1,57 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Update</li>
+  </ol>
+</nav>
+<div class="card">
+  <h1 class="card-header">Update Alert</h1>
+  <form [formGroup]="updateAlertForm" (ngSubmit)="onUpdate()">
+    <div>
+      <label for="idDeviceFk">ID ALERT</label>
+      <input type="text" formControlName="idAlert" class="form-control" readonly>
+    </div>
+    <div>
+      <label for="idDeviceFk">ID DEVICE</label>
+      <input type="text" formControlName="idDeviceFk" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.idDeviceFk.errors }">
+      <div *ngIf=" submitted && f.idDeviceFk.errors" class="invalid-feedback">
+        <div *ngIf="f.idDeviceFk.errors.required">ID DEVICE IS REQUIRED</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="timestamp">TIMESTAMP</label>
+      <input type="text" formControlName="timestamp" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.timestamp.errors }">
+      <div *ngIf=" submitted && f.timestamp.errors" class="invalid-feedback">
+        <div *ngIf="f.timestamp.errors.required">TIMESTAMP IS REQUIRED. Pattern: yyyy-MM-dd HH:mm:ss</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="code">CODE</label>
+      <input type="text" formControlName="code" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.code.errors }">
+      <div *ngIf=" submitted && f.code.errors" class="invalid-feedback">
+        <div *ngIf="f.code.errors.required">CODE IS REQUIRED</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="description">DESCRIPTION</label>
+      <input type="text" formControlName="description" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.description.errors }">
+      <div *ngIf=" submitted && f.description.errors" class="invalid-feedback">
+        <div *ngIf="f.description.errors.required">DESCRIPTION IS REQUIRED</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="text-center mt-4">
+        <button class="btn btn-outline-success mr-1 fas fa-edit"></button>
+        <button class="btn btn-outline-primary fas fa-arrow-left" (click)="backClicked()"></button>
+      </div>
+    </div>
+  </form>
+
+</div>

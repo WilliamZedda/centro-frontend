@@ -1,0 +1,25 @@
+.test {
+  justify-content: space-between;
+  display: flex;
+}
+
+.list-group-item {
+  padding: 0;
+  width: 100%;
+  // margin-right: 10px;
+  // margin-bottom: 10px;
+}
+
+.alert {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.alert:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  margin: 10px;
+}

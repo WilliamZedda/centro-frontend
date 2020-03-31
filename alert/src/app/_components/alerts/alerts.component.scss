@@ -1,0 +1,59 @@
+.container-fluid {
+  height: 100%;
+  width: 100%;
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-8 {
+  padding-left: 0;
+}
+
+agm-map {
+  height: 100%;
+}
+
+.col-4 {
+  padding: 0;
+}
+
+.btn-group {
+  width: 100%;
+}
+
+.btn-group .btn {
+  width: 50%;
+}
+
+.fa-plus {
+  margin-right: 5px;
+}
+
+.fa-sync-alt {
+  margin-left: 5px;
+}
+
+.list-group-horizontal {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+app-alerts-preview {
+  margin: 5px;
+}
+
+.form-group {
+  margin: 0px;
+  margin-top: 5px;
+  padding: 0px;
+}
+
+h2 {
+  margin: 0;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}

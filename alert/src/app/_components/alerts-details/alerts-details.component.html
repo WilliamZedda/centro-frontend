@@ -1,0 +1,21 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Alert</li>
+  </ol>
+</nav>
+<div class="card">
+  <h1 class="card-header">Alert</h1>
+  <div *ngIf="alertResponse" class="card-body">
+    ID ALERT: {{alertResponse.alert.idAlert}}<br>
+    ID DEVICE: {{alertResponse.alert.idDeviceFk}}<br>
+    TIMESTAMP: {{alertResponse.alert.timestamp}}<br>
+    CODE: {{alertResponse.alert.code}}<br>
+    DESCRIPTION: {{alertResponse.alert.description}}<br>
+    STORAGE YEARS: {{alertResponse.alert.storageYears}}<br>
+  </div>
+  <div class="card-footer">
+    <button type="button" class="btn btn-outline-primary fas fa-arrow-left" (click)="backClicked()"></button>
+  </div>
+  <hr>
+</div>
